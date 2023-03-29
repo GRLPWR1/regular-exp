@@ -25,13 +25,12 @@ function grabAllSNILS(string) {
 }
 console.log(grabAllSNILS("The numbers are 350-802-07 94, 234-600-142 w2, and 013-605-876 944"));
 
-//console.log(grabAllSNILS("The numbers are 350-802-074 94, 234-600-142 22, and 013-605-876 94"))
-
 // Зашифруй номера СНИЛС. Example: XXX-XXX-XXX 30.
 function hideAllSNILS(string) {
-
+    let regexp = /(\d{3}-){2}\d{3}\s(\d{2}\b)/g;
+    return string.replace(regexp, 'XXX-XXX-XXX $2');
 }
-
+console.log(hideAllSNILS("The numbers are 350-802-074 94, 234-600-142 22, and 013-605-876 94"));
 
 
 // Отформатируй все номера СНИЛС, чтобы использовались правильные разделители:
