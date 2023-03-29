@@ -46,6 +46,11 @@ it("returns null if does not find any SNILS", () => {
     let allSNILS = grabAllSNILS("The number is XXX-XXX-XXX 22");
     expect(allSNILS).toBeNull();
 });
+
+it("returns one SNILS if it finds only one SNILS", ()=>{
+    let allSNILS = grabSNILS("The numbers are 350-802-074 94, 23460014222, and 013-r605-876 954");
+    expect(allSNILS).toEqual("350-802-074 94");
+});
 });
 
 describe("hideAllSNILS", () => {
@@ -61,6 +66,11 @@ it("hides any SNILS it finds", () => {
 it("returns its input if it finds no SNILS", () => {
     let input = "The number is XXX-XXX-XXX 22";
     expect(hideAllSNILS(input)).toEqual(input);
+});
+
+it("hides one SNILS if it only finds one SNILS", ()=> {
+    let hiddenSNILS = hideAllSNILS("The numbers are 350-802-074 94, 23460014222, and 013-r605-876 954");
+    expect(hiddenSNILS).toEqual("The numbers are XXX-XXX-XXX 94, 23460014222, and 013-r605-876 954");
 });
 });
 
